@@ -10,7 +10,7 @@ dependencyContainer.AddDependency<ServiceConsumer>();
 
 var dependencyResolver = new DependencyResolver(dependencyContainer);
 
-var helloService = dependencyResolver.GetService<HelloService>();
+var helloService = dependencyResolver.GetService<ServiceConsumer>();
 
 helloService.Print();
 //serviceConsumer.Print();
