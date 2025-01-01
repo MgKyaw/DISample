@@ -7,6 +7,7 @@
 var dependencyContainer = new DependencyContainer();
 dependencyContainer.AddDependency(typeof(HelloService));
 dependencyContainer.AddDependency<ServiceConsumer>();
+dependencyContainer.AddDependency<MessageService>();
 
 var dependencyResolver = new DependencyResolver(dependencyContainer);
 
