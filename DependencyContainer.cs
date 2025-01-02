@@ -1,20 +1,24 @@
 public class DependencyContainer
 {
-    List<Type> _dependencies;
+    List<Dependency> _dependencies;
 
-    public void AddDependency(Type type)
+    public DependencyContainer()
     {
-        _dependencies = new List<Type>();
-        _dependencies.Add(type);
+        _dependencies = new List<Dependency>();
+    }
+
+    public void AddSingleton<T>()
+    {
+        _dependencies.Add(new Dependency(typeof(T), DependencyLifetime.Singleton));
     }
     
-    public void AddDependency<T>()
-    {
-        _dependencies.Add(typeof(T));
+    public void AddTransient<T>()
+    {        
+        _dependencies.Add(new Dependency(typeof(T), DependencyLifetime.Transient));
     }
 
-    public Type GetDependency(Type type)
+    public Dependency GetDependency(Type type)
     {
-        return _dependencies.First(t => t.Name == type.Name);
+        return _dependencies.First(t => t.Type.Name == type.Name);
     }
 }
