@@ -11,7 +11,15 @@ dependencyContainer.AddDependency<MessageService>();
 
 var dependencyResolver = new DependencyResolver(dependencyContainer);
 
-var service = dependencyResolver.GetService<ServiceConsumer>();
+var service1 = dependencyResolver.GetService<ServiceConsumer>();
 
-service.Print();
+service1.Print();
+
+var service2 = dependencyResolver.GetService<ServiceConsumer>();
+
+service2.Print();
+
+var service3 = dependencyResolver.GetService<ServiceConsumer>();
+
+service3.Print();
 //serviceConsumer.Print();
