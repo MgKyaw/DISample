@@ -5,9 +5,9 @@
 // var serviceConsumer = (ServiceConsumer) Activator.CreateInstance(typeof(ServiceConsumer), helloService);
 
 var dependencyContainer = new DependencyContainer();
-dependencyContainer.AddDependency(typeof(HelloService));
-dependencyContainer.AddDependency<ServiceConsumer>();
-dependencyContainer.AddDependency<MessageService>();
+dependencyContainer.AddTransient<HelloService>();
+dependencyContainer.AddTransient<ServiceConsumer>();
+dependencyContainer.AddSingleton<MessageService>();
 
 var dependencyResolver = new DependencyResolver(dependencyContainer);
 
